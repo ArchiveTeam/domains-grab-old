@@ -83,7 +83,12 @@ allowed = function(url, parenturl)
 end
 
 wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_parsed, iri, verdict, reason)
-  return allowed(urlpos["url"]["url"], parent["url"])
+  if allowed(urlpos["url"]["url"], parent["url"])
+    and not downloaded[urlpos["url"]["url"]]
+    and not addedtolist[urlpos["url"]["url"]] then
+    addedtolist[urlpos["url"]["url"]] = true
+    return true
+  end
 end
 
 wget.callbacks.get_urls = function(file, url, is_css, iri)
