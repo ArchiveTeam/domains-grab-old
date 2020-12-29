@@ -56,7 +56,7 @@ if not WGET_AT:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20201229.01'
+VERSION = '20201229.02'
 USER_AGENT = 'Archive Team'
 TRACKER_ID = 'domains'
 TRACKER_HOST = 'trackerproxy.archiveteam.org'
@@ -249,6 +249,10 @@ class WgetArgs(object):
         wget_args.append('https://{}/'.format(item_name))
         #wget_args.append('https://{}/robots.txt'.format(item_name))
         #wget_args.append('https://{}/sitemap.xml'.format(item_name))
+
+        if item_name.count('.') == 1:
+            wget_args.append('http://www.{}/'.format(item_name))
+            wget_args.append('https://www.{}/'.format(item_name))
 
         if 'bind_address' in globals():
             wget_args.extend(['--bind-address', globals()['bind_address']])
