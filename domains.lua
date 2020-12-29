@@ -87,8 +87,9 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
     and not downloaded[urlpos["url"]["url"]]
     and not addedtolist[urlpos["url"]["url"]] then
     addedtolist[urlpos["url"]["url"]] = true
-    return true
+    return verdict
   end
+  return false
 end
 
 wget.callbacks.get_urls = function(file, url, is_css, iri)
@@ -192,6 +193,12 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
   url_count = url_count + 1
   io.stdout:write(url_count .. "=" .. status_code .. " " .. url["url"] .. "  \n")
   io.stdout:flush()
+
+  if downloaded[url["url"]] then
+    io.stdout:write("URL already archived.\n")
+    io.stdout:flush()
+    return wget.actions.EXIT
+  end
 
   total_size = total_size + http_stat["len"]
 

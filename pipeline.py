@@ -56,7 +56,7 @@ if not WGET_AT:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20201229.04'
+VERSION = '20201229.05'
 USER_AGENT = 'Archive Team'
 TRACKER_ID = 'domains'
 TRACKER_HOST = 'trackerproxy.archiveteam.org'
