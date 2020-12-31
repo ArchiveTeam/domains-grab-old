@@ -22,7 +22,7 @@ Running without a warrior
 To run this outside the warrior, clone this repository, cd into its directory and run:
 
     python3 -m pip install setuptools wheel
-    python3 -m pip install --upgrade seesaw zstandard requests
+    python3 -m pip install --upgrade seesaw zstandard requests warcio
     ./get-wget-lua.sh
 
 then start downloading with:
