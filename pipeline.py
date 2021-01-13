@@ -46,7 +46,6 @@ WGET_AT = find_executable(
     ],
     [
         './wget-at',
-        'wget-at',
         '/usr/local/bin/wget-at'
     ]
 )
