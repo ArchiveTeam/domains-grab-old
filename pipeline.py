@@ -44,7 +44,10 @@ WGET_AT = find_executable(
         'GNU Wget 1.20.3-at.20200919.01',
         'GNU Wget 1.20.3-at.20201030.01'
     ],
-    ['./wget-at']
+    [
+        './wget-at',
+        'wget-at'
+    ]
 )
 
 if not WGET_AT:
@@ -56,7 +59,7 @@ if not WGET_AT:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = '20210109.01'
+VERSION = '20210113.01'
 USER_AGENT = 'Archive Team'
 TRACKER_ID = 'domains'
 TRACKER_HOST = 'trackerproxy.archiveteam.org'
